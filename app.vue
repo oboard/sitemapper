@@ -87,9 +87,10 @@ const appendGraph = async (url: string) => {
         //   segments.splice(1, 1, ...news);
         // }
         // 如果第一个是http或https，去掉
-        // if (segments[0] === 'http:' || segments[0] === 'https:') {
-        //   segments = segments.slice(1);
-        // }
+        if (segments[0] === 'http:' || segments[0] === 'https:') {
+          // segments = segments.slice(1);
+          segments[0] = segments[0] + '/';
+        }
 
         let lastNode = root.value;
 
