@@ -7,6 +7,8 @@ export default defineEventHandler(async (event) => {
 
   var requestOptions = {
     method: "GET",
+    // 超时
+    timeout: 10000,
   };
   var res = await fetch(url, requestOptions);
   var html = await res.text();
@@ -47,12 +49,26 @@ export default defineEventHandler(async (event) => {
     }
   });
 
+  const urlRegex = /(https?:\/\/\S+)/g;
+  const matches = url.match(urlRegex);
+
+  // 附加匹配的 URL
+  if (matches) {
+    ans.push(...matches);
+  }
+
   // 过滤掉javascript
-  ans = ans.filter((item) => {
-    return !item.startsWith("javascript");
-  }).map((item) => {
-    return item.split("?")[0].replaceAll(/;/g, "");
-  });
+  ans = ans
+    .filter((item) => {
+      return !item.startsWith("javascript");
+    })
+    .map((item) => {
+      return item.split("?")[0].replaceAll(/;/g, "");
+    })
+    // 去重
+    .filter((item, index, self) => {
+      return self.indexOf(item) === index;
+    });
 
   // // 使用正则表达式匹配所有 http 或 https 的 URL
   // const urlRegex = /(https?:\/\/\S+)/g;
