@@ -4,7 +4,7 @@
     <button @click="search">search</button>
     <button @click="deeper">deeper</button>
 
-    <Mnode :root="root" />
+    <MNodeItem :root="root" />
 
     <!-- <pre ref="GraphView" /> -->
   </div>
