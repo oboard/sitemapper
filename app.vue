@@ -109,9 +109,15 @@ const search = () => {
         {},
         code,
         'graph-div'
-      ).then((res) => {
-        if (GraphView.value) {
-          GraphView.value.innerHTML = res.svg;
+      ).then((res: RenderResult) => {
+        const graphDiv = GraphView.value;
+        if (graphDiv) {
+          graphDiv.innerHTML = res.svg;
+          graphDiv.setAttribute('height', '100%');
+          graphDiv.style.maxWidth = '100%';
+          if (res?.bindFunctions) {
+            res?.bindFunctions(graphDiv);
+          }
         }
       });
 
