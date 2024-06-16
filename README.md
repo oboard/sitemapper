@@ -1,75 +1,33 @@
-# Nuxt 3 Minimal Starter
+# Sitemapper
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Sitemapper is a spider that crawls a website and generates a sitemap for it. It uses href links to discover new pages on the website and adds them to the sitemap.
 
-## Setup
+Sitemapper是一个爬虫，它可以爬取一个网站并生成网站地图。它使用href链接来发现网站上的新页面，并将它们添加到网站地图中。
 
-Make sure to install the dependencies:
+## Try
 
-```bash
-# npm
-npm install
+[Sitemapper from Vercel](https://sitemapper.vercel.app/)
 
-# pnpm
+[Sitemapper from oboard](https://site.oboard.eu.org/)
+
+## Usage
+
+```sh
 pnpm install
+pnpm dev
 
-# yarn
-yarn install
-
-# bun
 bun install
+bun dev
 ```
 
-## Development Server
+Input the website URL and click "search". The sitemap will be generated and displayed.
 
-Start the development server on `http://localhost:3000`:
+Then you can click "deeper" to generate a chain reaction of sitemaps for all the pages on the website.
 
-```bash
-# npm
-npm run dev
+输入网站URL并点击“search”。网站地图将生成并显示。
 
-# pnpm
-pnpm run dev
+然后，你可以点击“deeper”来为网站上的所有页面生成网站地图链反应。
 
-# yarn
-yarn dev
+## License
 
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+[MIT](LICENSE)
